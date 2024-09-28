@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="warning_title">Внимание!\n данный экран находится разработке</string>
+    <string name="counter_watchers_title">counter watchers</string>
+    <string name="verified">verified</string>
+    <string name="favorite">favorite</string>
+    <string name="icon">icon</string>
+    <string name="respond">Откликнуться</string>
+</resources>

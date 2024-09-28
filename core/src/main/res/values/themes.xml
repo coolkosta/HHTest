@@ -1,0 +1,3 @@
+<resources>
+   <style name="Test" parent="TextAppearance.AppCompat.Button"/>
+</resources>
