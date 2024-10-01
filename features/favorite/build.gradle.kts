@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    kotlin("kapt")
 }
 
 android {
@@ -47,4 +48,19 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation (libs.androidx.fragment.ktx)
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    implementation (libs.androidx.recyclerview)
+    //Room
+    implementation (libs.androidx.room.runtime)
+    annotationProcessor (libs.androidx.room.compiler)
+    kapt (libs.androidx.room.compiler)
+    //AdapterDelegates
+    implementation (libs.adapterdelegates4.kotlin.dsl)
+    implementation (libs.adapterdelegates4.kotlin.dsl.viewbinding)
+    implementation (libs.viewbindingpropertydelegate.full)
+    //Coroutines
+    implementation (libs.kotlinx.coroutines.android)
+    //Dagger
+    implementation (libs.dagger)
+    kapt (libs.dagger.compiler)
 }

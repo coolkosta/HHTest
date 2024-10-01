@@ -1,4 +1,4 @@
-package com.coolkosta.search.domain.model
+package com.coolkosta.core.domain.model
 
 data class VacancyEntity(
     val id: String,

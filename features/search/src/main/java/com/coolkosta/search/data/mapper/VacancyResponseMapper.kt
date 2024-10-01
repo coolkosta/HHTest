@@ -1,13 +1,13 @@
 package com.coolkosta.search.data.mapper
 
+import com.coolkosta.core.data.source.local.model.VacancyDbModel
 import com.coolkosta.search.data.source.remote.model.VacancyResponse
-import com.coolkosta.search.domain.model.VacancyEntity
 import kotlinx.datetime.LocalDate
 
 
-object VacancyMapper {
-    fun fromVacancyResponseToVacancyEntity(vacancyResponse: VacancyResponse): VacancyEntity {
-        return VacancyEntity(
+object VacancyResponseMapper {
+    fun fromVacancyResponseToVacancyDbModel(vacancyResponse: VacancyResponse): VacancyDbModel {
+        return VacancyDbModel(
             id = vacancyResponse.id,
             lookingNumber = vacancyResponse.lookingNumber,
             isFavorite = vacancyResponse.isFavorite,

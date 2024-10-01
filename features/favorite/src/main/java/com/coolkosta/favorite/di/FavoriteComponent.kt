@@ -1,4 +1,4 @@
-package com.coolkosta.search.di
+package com.coolkosta.favorite.di
 
 import com.coolkosta.core.data.source.local.dao.VacancyDao
 import dagger.Component
@@ -6,15 +6,12 @@ import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Singleton
 
 @Singleton
-@Component(
-    modules = [DataModule::class, DomainModule::class],
-    dependencies = [SearchDeps::class]
-)
-interface SearchComponent {
-    fun searchViewModelFactory(): SearchViewModelFactory
+@Component(modules = [DataModule::class, DomainModule::class], dependencies = [FavoriteDeps::class])
+interface FavoriteComponent {
+    fun provideFavoriteViewModelFactory(): FavoriteViewModelFactory
 }
 
-interface SearchDeps {
+interface FavoriteDeps {
     val vacancyDao: VacancyDao
     val backgroundCoroutineDispatcher: CoroutineDispatcher
 }

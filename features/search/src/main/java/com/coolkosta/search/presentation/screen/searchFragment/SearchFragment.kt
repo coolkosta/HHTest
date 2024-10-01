@@ -3,7 +3,6 @@ package com.coolkosta.search.presentation.screen.searchFragment
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -15,7 +14,8 @@ import com.coolkosta.search.R
 import com.coolkosta.search.databinding.FragmentSearchBinding
 import com.coolkosta.search.di.SearchComponentProvider
 import com.coolkosta.search.domain.model.OfferEntity
-import com.coolkosta.search.domain.model.VacanciesItems
+import com.coolkosta.core.domain.model.VacanciesCount
+import com.coolkosta.core.domain.model.VacanciesItems
 import com.coolkosta.search.presentation.adapter.SearchAdapterDelegate
 import com.coolkosta.search.presentation.screen.vacancyDetailsFragment.VacancyDetailsFragment
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
@@ -49,8 +49,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
         adapterVacancies = ListDelegationAdapter(
             adapter.vacancyAdapterDelegate(
-                { vacancy -> },
-                {
+                onLikeIconClick = { vacancy ->
+                    viewModel.sendEvent(SearchEvent.VacancyFavoriteItemsChanged(vacancy))
+                },
+                onClick = {
                     requireActivity().supportFragmentManager.beginTransaction().replace(
                         com.coolkosta.core.R.id.fragment_container,
                         VacancyDetailsFragment::class.java,
@@ -61,7 +63,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 }
             ),
             adapter.showMoreVacanciesAdapterDelegate {
-                Log.d("SearchFragment", "send Event Clicked")
                 viewModel.sendEvent(SearchEvent.VacancyListOpened(true))
             }
         )
@@ -132,7 +133,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 vacanciesForYouTv.visibility = View.VISIBLE
             }
             adapterVacancies.apply {
-                val previewCounter = state.vacanciesCount.copy()
+                val previewCounter = VacanciesCount(state.vacanciesCount.count - 3)
                 items = state.vacancies.slice(0..2) + previewCounter
                 notifyDataSetChanged()
             }

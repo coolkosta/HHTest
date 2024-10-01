@@ -6,9 +6,9 @@ import com.coolkosta.search.R
 import com.coolkosta.search.databinding.ButtonShowMoreBinding
 import com.coolkosta.search.databinding.ItemRecommendationBinding
 import com.coolkosta.search.domain.model.OfferEntity
-import com.coolkosta.search.domain.model.VacanciesCount
-import com.coolkosta.search.domain.model.VacanciesItems
-import com.coolkosta.search.domain.model.VacancyEntity
+import com.coolkosta.core.domain.model.VacanciesCount
+import com.coolkosta.core.domain.model.VacanciesItems
+import com.coolkosta.core.domain.model.VacancyEntity
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
 class SearchAdapterDelegate {
@@ -81,7 +81,8 @@ class SearchAdapterDelegate {
                             setImageResource(com.coolkosta.core.R.drawable.ic_favorite)
                         }
                         setOnClickListener {
-                            onLikeIconClick.invoke(vacancy)
+                            val updatedItem = vacancy.copy(isFavorite = !vacancy.isFavorite)
+                            onLikeIconClick.invoke(updatedItem)
                         }
                     }
                     positionTv.text = vacancy.title

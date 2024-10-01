@@ -1,5 +1,6 @@
 package com.coolkosta.search.di
 
+import com.coolkosta.core.data.source.local.dao.VacancyDao
 import com.coolkosta.search.data.repository.OfferRepositoryImpl
 import com.coolkosta.search.data.repository.VacancyRepositoryImpl
 import com.coolkosta.search.data.source.remote.api.ApiService
@@ -56,8 +57,9 @@ class DataModule {
     @Provides
     fun provideVacancyRepository(
         apiService: ApiService,
+        vacancyDao: VacancyDao,
         dispatcher: CoroutineDispatcher
     ): VacancyRepository {
-        return VacancyRepositoryImpl(apiService, dispatcher)
+        return VacancyRepositoryImpl(apiService, vacancyDao, dispatcher)
     }
 }
