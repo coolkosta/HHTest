@@ -5,13 +5,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.coolkosta.favorite.FavoriteFragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import com.coolkosta.core.util.VacancyFlow
+import com.coolkosta.favorite.presentation.screen.FavoriteFragment
 import com.coolkosta.feedback.presentation.FeedbackFragment
 import com.coolkosta.hhtest.R
 import com.coolkosta.hhtest.databinding.ActivityMainBinding
 import com.coolkosta.message.MessageFragment
 import com.coolkosta.profile.ProfileFragment
 import com.coolkosta.search.presentation.screen.searchFragment.SearchFragment
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -49,6 +54,22 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+        getFavoriteCountBadge()
     }
 
+    private fun getFavoriteCountBadge() {
+        lifecycleScope.launch {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                VacancyFlow.getFavoriteVacancyCount().collect {
+                    updateFavoriteCountBadge(it)
+                }
+            }
+        }
+    }
+
+    private fun updateFavoriteCountBadge(favoriteCount: Int) {
+        val badge = binding.bottomNavigationView.getOrCreateBadge(R.id.favorite)
+        badge.number = favoriteCount
+        badge.isVisible = favoriteCount > 0
+    }
 }

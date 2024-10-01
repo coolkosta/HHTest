@@ -1,8 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-parcelize")
-    kotlin("plugin.serialization") version "2.0.20"
     kotlin("kapt")
 }
 
@@ -45,11 +43,9 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
 
-    implementation (libs.androidx.fragment.ktx)
-    implementation (libs.androidx.lifecycle.viewmodel.ktx)
-    implementation (libs.androidx.recyclerview)
-    implementation(libs.kotlinx.serialization.json)
-    implementation (libs.gson)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.recyclerview)
 
     implementation(libs.material)
     testImplementation(libs.junit)
@@ -57,26 +53,24 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     //Coroutines
-    implementation (libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.android)
     //Dagger
-    implementation (libs.dagger)
-    kapt (libs.dagger.compiler)
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
     //AdapterDelegates
-    implementation (libs.adapterdelegates4.kotlin.dsl)
-    implementation (libs.adapterdelegates4.kotlin.dsl.viewbinding)
-    implementation (libs.viewbindingpropertydelegate.full)
+    implementation(libs.adapterdelegates4.kotlin.dsl)
+    implementation(libs.adapterdelegates4.kotlin.dsl.viewbinding)
+    implementation(libs.viewbindingpropertydelegate.full)
     //Room
-    implementation (libs.androidx.room.runtime)
-    annotationProcessor (libs.androidx.room.compiler)
-    kapt (libs.androidx.room.compiler)
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    kapt(libs.androidx.room.compiler)
 
     //OkHttp & Retrofit
     implementation(platform(libs.okhttp.bom))
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
-    implementation (libs.retrofit)
-    implementation (libs.retrofit2.converter.gson)
-
-
+    implementation(libs.retrofit)
+    implementation(libs.retrofit2.converter.gson)
     implementation(libs.kotlinx.datetime)
 }

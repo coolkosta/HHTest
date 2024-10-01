@@ -1,8 +1,8 @@
 package com.coolkosta.search.presentation.screen.searchFragment
 
 import com.coolkosta.search.domain.model.OfferEntity
-import com.coolkosta.search.domain.model.VacanciesCount
-import com.coolkosta.search.domain.model.VacancyEntity
+import com.coolkosta.core.domain.model.VacanciesCount
+import com.coolkosta.core.domain.model.VacancyEntity
 
 sealed interface SearchState {
     data object Loading : SearchState

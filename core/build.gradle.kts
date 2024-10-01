@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    kotlin("kapt")
 
 }
 
@@ -46,4 +47,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //Dagger
+    implementation (libs.dagger)
+    kapt (libs.dagger.compiler)
+    //Room
+    implementation (libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    annotationProcessor (libs.androidx.room.compiler)
+    kapt (libs.androidx.room.compiler)
+
 }

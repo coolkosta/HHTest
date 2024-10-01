@@ -1,7 +1,9 @@
 package com.coolkosta.search.domain.repository
 
-import com.coolkosta.search.domain.model.VacancyEntity
+import com.coolkosta.core.domain.model.VacancyEntity
 
-fun interface VacancyRepository {
+interface VacancyRepository {
     suspend fun getVacancies(): List<VacancyEntity>
+    suspend fun updateFavoriteVacancy(vacancy: VacancyEntity)
+    suspend fun getLocalVacancies(): List<VacancyEntity>
 }
