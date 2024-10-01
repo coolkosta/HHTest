@@ -1,4 +1,4 @@
-Тестовое задание для EffectiveMobile : [link]([url](https://docs.google.com/document/d/15MkPXaen2j5oe-8ViUUnondUtGN6fnHCZnVnrmTmMnY/edit))
+Тестовое задание для EffectiveMobile : [link](https://docs.google.com/document/d/15MkPXaen2j5oe-8ViUUnondUtGN6fnHCZnVnrmTmMnY/edit)
 
 Используемый стэк:
 - Kotlin 
