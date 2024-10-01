@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/basic_black"
-    tools:context=".SearchFragment">
+    tools:context=".presentation.screen.searchFragment.SearchFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/search_bar"
@@ -97,7 +97,8 @@
             android:id="@+id/vacancies_counter_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/vacancies_counter_tv"
@@ -105,8 +106,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:fontFamily="@font/sf_pro_display_regular"
-                tools:text="145 вакансий"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                tools:text="145 вакансий" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -123,20 +124,19 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="16dp"
-        tools:itemCount="3"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        tools:listitem="@layout/item_vacancy_card"
         android:id="@+id/vacancies_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/head_container" />
-
+        app:layout_constraintTop_toBottomOf="@id/head_container"
+        tools:listitem="@layout/item_vacancy_card"
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

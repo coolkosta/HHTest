@@ -1,4 +1,4 @@
-package com.coolkosta.hhtest
+package com.coolkosta.hhtest.presentation.screen
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -7,10 +7,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.coolkosta.favorite.FavoriteFragment
 import com.coolkosta.feedback.presentation.FeedbackFragment
+import com.coolkosta.hhtest.R
 import com.coolkosta.hhtest.databinding.ActivityMainBinding
 import com.coolkosta.message.MessageFragment
 import com.coolkosta.profile.ProfileFragment
-import com.coolkosta.search.SearchFragment
+import com.coolkosta.search.presentation.screen.searchFragment.SearchFragment
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding

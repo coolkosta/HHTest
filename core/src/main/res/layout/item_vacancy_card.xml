@@ -30,10 +30,11 @@
             android:id="@+id/favorite_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:contentDescription="@string/favorite"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/watchers_tv"
+            app:layout_constraintTop_toTopOf="parent"
 
             tools:src="@drawable/ic_favorite_filled" />
 
@@ -50,7 +51,7 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/watchers_tv"
+            app:layout_constraintTop_toBottomOf="@id/favorite_iv"
             tools:text="UI/UX Designer" />
 
         <TextView
@@ -88,10 +89,11 @@
             android:id="@+id/experience_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:contentDescription="@string/icon"
             android:src="@drawable/ic_suitcase"
-            app:layout_constraintStart_toStartOf="@id/watchers_tv"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/company_tv" />
 
         <TextView
@@ -111,36 +113,34 @@
             android:id="@+id/sharing_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/sf_pro_display_medium"
             android:textColor="@color/basic_grey_3"
-            app:layout_constraintStart_toStartOf="@id/watchers_tv"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/experience_iv"
             tools:text="Опубликовано 20 февраля" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="0dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="21dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sharing_tv">
 
 
             <com.google.android.material.button.MaterialButton
+               android:layout_marginBottom="16dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/special_green"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sharing_tv"
+                android:id="@+id/response_btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/special_green"
                 android:fontFamily="@font/sf_pro_display_regular"
                 android:text="@string/respond"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
-        </com.google.android.material.card.MaterialCardView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
