@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HHTest</string>
+    <string name="search_title">Поиск</string>
+    <string name="favorite_title">Избранное</string>
+    <string name="feedback_title">Отклики</string>
+    <string name="message_title">Сообщения</string>
+    <string name="profile_title">Профиль</string>
+</resources>
